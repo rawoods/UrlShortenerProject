@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <!--using bootstrap for simple styling-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="site.css" rel="stylesheet" type="text/css">
+    <div>
+    <h1>URL Shortener</h1>
+    </div>
+</head>
+<body>
+    <main>
+        <div>
+            <section id="urlForm">
+                <form enctype="application/x-www-form-urlencoded" method="POST" action="/shortenUrl">
+                    <div class="form-group">
+
+                        <label class="form-label text-large" for="longUrl">Enter URL</label>
+
+                        <input type="url" class="form-control half-width" name="longUrl" />
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Shortened URL</button>
+                    <br />
+                    <br />
+                    <p id="urlResult">
+                        <!--the shortened url will appear here-->
+                    </p>
+
+                </form>
+            </section>
+        </div>
+    </main>
+    <script>
+        var data = window.location.hash;
+        if (data) {
+
+            var url = new URL(data.substr(1));
+
+            if (url.protocol === window.location.protocol && url.host === window.location.host) {
+                //show our shortened url in the <p> tag with the correct link
+                var section = document.getElementById('urlResult');
+                section.innerHTML = `<a id="link" href="${url}">${url}</a>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

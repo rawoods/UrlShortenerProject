@@ -1,0 +1,16 @@
+﻿div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-large {
+    font-size: 25px;
+}
+
+.half-width {
+    width: 33%;
+    display: block;
+    margin: 0 auto;
+}
